@@ -111,9 +111,29 @@ export function SetupView({
             >
               -
             </Button>
-            <span className="text-6xl font-bold tabular-nums">
-              {attendees}
-            </span>
+            <input
+              type="number"
+              min="1"
+              value={attendees}
+              onChange={(e) => {
+                const val = parseInt(e.target.value);
+                if (!isNaN(val) && val >= 1) {
+                  setAttendees(val);
+                } else if (e.target.value === '') {
+                  // Allow empty string temporarily while typing
+                  setAttendees(1);
+                }
+              }}
+              onBlur={(e) => {
+                // Ensure valid value on blur
+                const val = parseInt(e.target.value);
+                if (isNaN(val) || val < 1) {
+                  setAttendees(1);
+                }
+              }}
+              className="text-6xl font-bold tabular-nums bg-transparent text-center w-32 outline-none focus:text-primary transition-colors"
+              style={{ appearance: 'textfield' }}
+            />
             <Button
               variant="outline"
               size="icon"

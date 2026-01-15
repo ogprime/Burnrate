@@ -91,7 +91,8 @@ export function ReceiptView({ cost, duration, attendees, onRestart, onOpenHistor
         const shareData: ShareData = {
             title: 'Meeting Cost Receipt',
             text: text,
-            url: window.location.href
+            // Don't include URL - it causes mobile Safari to block the share
+            // url: window.location.href
         };
 
         if (file && navigator.canShare && navigator.canShare({ files: [file] })) {

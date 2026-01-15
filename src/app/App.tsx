@@ -20,6 +20,55 @@ export default function App() {
 
   const requestRef = useRef<number>();
   
+  // Prevent page from being discarded on mobile
+  useEffect(() => {
+    // Request a wake lock when timer is running to prevent page from being discarded
+    let wakeLock: any = null;
+    
+    const requestWakeLock = async () => {
+      if (screen === 'timer' && 'wakeLock' in navigator) {
+        try {
+          wakeLock = await (navigator as any).wakeLock.request('screen');
+          console.log('Wake lock acquired');
+        } catch (err) {
+          console.log('Wake lock failed:', err);
+        }
+      }
+    };
+
+    const releaseWakeLock = () => {
+      if (wakeLock) {
+        wakeLock.release();
+        wakeLock = null;
+        console.log('Wake lock released');
+      }
+    };
+
+    // Keep page alive with visibility change handling
+    const handleVisibilityChange = () => {
+      if (document.hidden && screen === 'timer') {
+        // Page is hidden but timer is running - try to keep it alive
+        console.log('Page hidden - timer still running');
+      } else if (!document.hidden && screen === 'timer' && wakeLock === null) {
+        // Page visible again, re-acquire wake lock if needed
+        requestWakeLock();
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    
+    if (screen === 'timer') {
+      requestWakeLock();
+    } else {
+      releaseWakeLock();
+    }
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      releaseWakeLock();
+    };
+  }, [screen]);
+  
   // Load History
   useEffect(() => {
     const saved = localStorage.getItem('burn_rate_history');
@@ -36,6 +85,41 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem('burn_rate_history', JSON.stringify(history));
   }, [history]);
+
+  // Load active session state on mount
+  useEffect(() => {
+    const savedSession = localStorage.getItem('burn_rate_active_session');
+    if (savedSession) {
+      try {
+        const session = JSON.parse(savedSession);
+        // Only restore if we were in timer mode
+        if (session.screen === 'timer' && session.startTime) {
+          setScreen(session.screen);
+          setAttendees(session.attendees);
+          setHourlyRate(session.hourlyRate);
+          setStartTime(session.startTime);
+        }
+      } catch (e) {
+        console.error("Failed to parse active session", e);
+      }
+    }
+  }, []);
+
+  // Save active session state
+  useEffect(() => {
+    if (screen === 'timer' && startTime) {
+      const session = {
+        screen,
+        attendees,
+        hourlyRate,
+        startTime,
+      };
+      localStorage.setItem('burn_rate_active_session', JSON.stringify(session));
+    } else {
+      // Clear session when not in timer mode
+      localStorage.removeItem('burn_rate_active_session');
+    }
+  }, [screen, attendees, hourlyRate, startTime]);
 
   const handleStart = () => {
     setStartTime(Date.now());
