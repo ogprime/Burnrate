@@ -4,16 +4,14 @@ Use this checklist before deploying to app stores.
 
 ## Pre-Deployment
 
-- [ ] Run dev server: `npm run dev`
-- [ ] Visit `http://localhost:5173/?generator=true`
-- [ ] Click "Generate All PWA Assets"
-- [ ] Download all 5 PNG files:
-  - [ ] icon-192.png
-  - [ ] icon-512.png
-  - [ ] screenshot-setup.png
-  - [ ] screenshot-timer.png
-  - [ ] screenshot-receipt.png
-- [ ] Move all PNG files to `/public` folder
+- [ ] Visit https://cloudconvert.com/svg-to-png
+- [ ] Convert `/public/icon-192-temp.svg` → download as `icon-192.png`
+- [ ] Convert `/public/icon-512-temp.svg` → download as `icon-512.png`
+- [ ] Take screenshots of your app (phone or Chrome DevTools):
+  - [ ] screenshot-setup.png (Setup screen)
+  - [ ] screenshot-timer.png (Timer running)
+  - [ ] screenshot-receipt.png (Receipt view)
+- [ ] Move all 5 PNG files to `/public` folder
 - [ ] Delete temp SVG files:
   - [ ] /public/icon-192-temp.svg
   - [ ] /public/icon-512-temp.svg
@@ -105,5 +103,5 @@ Use this checklist before deploying to app stores.
 
 ---
 
-**Current Status**: Assets pending generation
-**Next Action**: Run generator at `?generator=true`
+**Current Status**: Assets need conversion via free tools  
+**Next Action**: Use CloudConvert for icons & take screenshots

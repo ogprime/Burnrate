@@ -8,17 +8,21 @@
 ⚡ QUICK START (3 STEPS)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  1. Run dev server:
+  1. Convert icons to PNG:
      
-     npm run dev
+     Visit: https://cloudconvert.com/svg-to-png
+     Upload: /public/icon-192-temp.svg → icon-192.png
+     Upload: /public/icon-512-temp.svg → icon-512.png
      
   
-  2. Open generator:
+  2. Take screenshots:
   
-     http://localhost:5173/?generator=true
+     Use your phone or browser DevTools
+     Capture: Setup, Timer, Receipt screens
+     Save as: screenshot-setup.png, etc.
   
   
-  3. Click "Generate All PWA Assets" and download everything!
+  3. Move all 5 PNGs to /public folder!
 
 
 📚 FULL DOCUMENTATION
@@ -26,7 +30,7 @@
 
   📖 START_HERE.md              Complete setup guide
   📖 README_PWA.md               Overview & features
-  📖 GENERATE_PWA_ASSETS.md      Asset generation
+  📖 GENERATE_PWA_ASSETS.md      Asset generation with free tools
   📖 DEPLOYMENT_CHECKLIST.md     Deploy step-by-step
   📖 PWA_COMPLETE.md             Technical details
   📖 PWA_STATUS.txt              Quick reference
@@ -39,9 +43,7 @@
   ✓ Web App Manifest (manifest.json)
   ✓ Service Worker (sw.js)
   ✓ PWA Meta Tags (index.html)
-  ✓ Icon Templates (SVG → PNG converter)
-  ✓ Screenshot Generator (html2canvas)
-  ✓ Asset Generator Tool (one-click)
+  ✓ Icon Templates (ready for conversion)
   ✓ Vite PWA Plugin (auto-updates)
   ✓ Offline Support
   ✓ Install to Home Screen
@@ -59,17 +61,31 @@
   📸 screenshot-receipt.png    Receipt screen
 
 
+🆓 FREE TOOLS TO USE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  SVG to PNG Conversion:
+    • https://cloudconvert.com/svg-to-png
+    • https://convertio.co/svg-png/
+    • https://www.zamzar.com/convert/svg-to-png/
+  
+  Screenshots:
+    • Your phone camera (most authentic!)
+    • Chrome DevTools (F12 → Device Mode)
+    • https://www.screely.com/
+    • https://screenshots.cloud/
+
+
 🚀 AFTER GENERATING ASSETS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   1. Move all PNG files to /public folder
   2. Delete temp files (icon-*-temp.svg)
-  3. Verify at: http://localhost:5173/icon-preview.html
-  4. Build: npm run build
-  5. Deploy to Vercel/Netlify/etc
-  6. Visit PWABuilder.com with your URL
-  7. Generate app packages
-  8. Submit to app stores!
+  3. Verify at: /icon-preview.html (if running locally)
+  4. Deploy to Vercel/Netlify/etc
+  5. Visit PWABuilder.com with your URL
+  6. Generate app packages
+  7. Submit to app stores!
 
 
 🏪 APP STORE SUBMISSION
@@ -92,21 +108,21 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   PWA Config:     ✅ Complete
-  Assets:         ⏳ Pending Generation
-  Next Step:      Run ?generator=true
+  Assets:         ⏳ Need conversion (use free tools)
+  Next Step:      Use CloudConvert for icons
   Time to Deploy: ~10 minutes
 
 
 💡 HELPFUL URLS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  🎨 Asset Generator:
-     http://localhost:5173/?generator=true
+  🔄 Convert Icons:
+     https://cloudconvert.com/svg-to-png
   
   👁️ Icon Preview:
      http://localhost:5173/icon-preview.html
   
-  🏠 Normal App:
+  🏠 Your App:
      http://localhost:5173/
   
   📦 PWABuilder:
@@ -116,9 +132,9 @@
 🆘 NEED HELP?
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  Read START_HERE.md for complete instructions!
+  Read GENERATE_PWA_ASSETS.md for step-by-step instructions!
 
 
 ═══════════════════════════════════════════════════════════════
-         YOUR APP IS PWA-READY! JUST GENERATE THE ASSETS!
+    YOUR APP IS PWA-READY! USE FREE TOOLS TO CONVERT ASSETS!
 ═══════════════════════════════════════════════════════════════

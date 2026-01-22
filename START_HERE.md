@@ -6,38 +6,43 @@ Your **Burn Rate** app is now a fully-functional Progressive Web App (PWA) ready
 
 ---
 
-## 🎯 Quick Start (5 Minutes to PWA-Ready)
+## 🎯 Quick Start (3 Steps Using Free Tools)
 
-### Step 1: Generate Assets
-```bash
-npm run dev
-```
-Then visit: **http://localhost:5173/?generator=true**
+### Step 1: Convert Icons to PNG
+Visit: **https://cloudconvert.com/svg-to-png**
 
-### Step 2: Download Everything
-Click the big green button: **"Generate All PWA Assets"**
+1. Upload `/public/icon-192-temp.svg`
+2. Convert and download as `icon-192.png`
+3. Upload `/public/icon-512-temp.svg`
+4. Convert and download as `icon-512.png`
 
-Wait for 5 files to download:
-- ✅ icon-192.png
-- ✅ icon-512.png  
-- ✅ screenshot-setup.png
-- ✅ screenshot-timer.png
-- ✅ screenshot-receipt.png
+**Alternative tools:**
+- https://convertio.co/svg-png/
+- https://www.zamzar.com/convert/svg-to-png/
+
+### Step 2: Take Screenshots
+Use your phone or browser DevTools:
+
+**Option A: Your Phone (Most Authentic)**
+1. Open your app on your phone
+2. Take screenshots of Setup, Timer, and Receipt screens
+3. Transfer to computer and rename
+
+**Option B: Chrome DevTools**
+1. Press F12 in Chrome
+2. Click device toolbar (Ctrl+Shift+M)
+3. Select iPhone 12 Pro (390x844)
+4. Take screenshots of each screen
+5. Save as: `screenshot-setup.png`, `screenshot-timer.png`, `screenshot-receipt.png`
+
+**Alternative tools:**
+- https://www.screely.com/
+- https://screenshots.cloud/
 
 ### Step 3: Install Assets
-Move all 5 PNG files from Downloads to `/public` folder
-
-### Step 4: Clean Up
-Delete these temp files from `/public`:
-- ❌ icon-192-temp.svg
-- ❌ icon-512-temp.svg
-
-### Step 5: Verify
-Visit: **http://localhost:5173/icon-preview.html**
-All icons should show ✅ Ready status
-
-### Step 6: Deploy! 🚀
-Deploy to Vercel, Netlify, or any HTTPS host
+1. Move all 5 PNG files to `/public` folder
+2. Delete temp SVG files (`icon-*-temp.svg`)
+3. Deploy!
 
 ---
 
@@ -61,24 +66,17 @@ Deploy to Vercel, Netlify, or any HTTPS host
 - **`screenshot-receipt.png`** - Results view
 - Perfect for app store listings!
 
-### Generator Tool
-- **`/src/app/components/PWAAssetsGenerator.tsx`**
-- One-click asset generation
-- Automatic PNG conversion
-- Screenshot capture
-- Simple download process
-
 ### Documentation
 - **`README_PWA.md`** - Complete overview
 - **`PWA_COMPLETE.md`** - Technical details
-- **`GENERATE_PWA_ASSETS.md`** - Generator guide
+- **`GENERATE_PWA_ASSETS.md`** - Use free tools for assets
 - **`DEPLOYMENT_CHECKLIST.md`** - Step-by-step deploy
 - **`PWA_STATUS.txt`** - Quick reference card
 
-### Utilities
-- **`/public/icon-preview.html`** - Icon verification page
+### Icon Templates
 - **`/public/icon-192-temp.svg`** - Icon template (small)
 - **`/public/icon-512-temp.svg`** - Icon template (large)
+- **`/public/icon-preview.html`** - Icon verification page
 
 ---
 
@@ -240,10 +238,10 @@ npm run build
 ## 🐛 Troubleshooting
 
 ### Icons Not Showing?
-- Run generator at `?generator=true`
+- Use free tools to convert SVGs to PNGs
 - Verify PNG files are in `/public` folder
 - Hard refresh browser (Ctrl+Shift+R)
-- Check `/icon-preview.html`
+- Check `/icon-preview.html` when running locally
 
 ### Install Prompt Not Appearing?
 - Must be served over HTTPS (or localhost)
@@ -258,10 +256,9 @@ npm run build
 - Verify sw.js is accessible
 
 ### Screenshots Wrong Size?
-- Re-generate from generator tool
-- Check html2canvas is installed
-- Verify component renders correctly
-- Try generating one at a time
+- Retake screenshots with proper dimensions (390x844)
+- Use Chrome DevTools device mode
+- Or take screenshots from actual phone
 
 ---
 
@@ -306,14 +303,13 @@ PWA Configuration:     ✅ 100% Complete
 Service Worker:        ✅ Configured
 Web Manifest:          ✅ Ready
 Meta Tags:             ✅ Installed
-Icon Templates:        ✅ Created
-Generator Tool:        ✅ Built
+Icon Templates:        ✅ Created (SVG)
 Documentation:         ✅ Complete
 ```
 
-**Next Action:** Generate assets at `?generator=true`
+**Next Action:** Convert icons using CloudConvert & take screenshots
 
-**Time to Deploy:** ~10 minutes after assets generated
+**Time to Assets:** ~5-10 minutes using free tools
 
 **Time to App Stores:** 1-2 hours after deployment + store approval time
 
@@ -321,16 +317,14 @@ Documentation:         ✅ Complete
 
 ## 🎯 Final Checklist
 
-- [ ] Run `npm run dev`
-- [ ] Visit `?generator=true`
-- [ ] Generate all assets
-- [ ] Move PNGs to `/public`
+- [ ] Convert SVG icons to PNG using CloudConvert
+- [ ] Take screenshots (phone or DevTools)
+- [ ] Move all 5 PNGs to `/public`
 - [ ] Delete temp SVG files
-- [ ] Verify at `/icon-preview.html`
-- [ ] Test install locally
 - [ ] Build: `npm run build`
-- [ ] Deploy to hosting
+- [ ] Deploy to hosting (Vercel/Netlify/etc)
 - [ ] Test on deployed URL
+- [ ] Verify install prompt works
 - [ ] Visit PWABuilder with URL
 - [ ] Generate app packages
 - [ ] Create privacy policy
