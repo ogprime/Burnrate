@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192" fill="none">
+  <!-- White background with slight padding effect -->
+  <rect width="192" height="192" fill="#ffffff" rx="38.4"/>
+  
+  <!-- Shadow/depth effect -->
+  <circle cx="96" cy="100" r="60" fill="#000000" opacity="0.03"/>
+  
+  <!-- Main green flame centered and scaled -->
+  <g transform="translate(96, 96) scale(5.5)">
+    <g transform="translate(-12, -12)">
+      <!-- Flame path with black outline -->
+      <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.1.2-2.2.6-3.3" 
+            fill="#26D962" 
+            stroke="#000000" 
+            stroke-width="1.8" 
+            stroke-linecap="round" 
+            stroke-linejoin="round"/>
+      <!-- Inner highlight for depth -->
+      <path d="M11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6" 
+            fill="none"
+            stroke="#ffffff" 
+            stroke-width="0.8" 
+            stroke-linecap="round" 
+            opacity="0.4"/>
+    </g>
+  </g>
+</svg>

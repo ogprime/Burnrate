@@ -1,4 +1,7 @@
 **Add your own guidelines here**
+I have no local dev environment do not create code or tests that require me to run something. 
+Do not build a function or something (like an SVG to PNG) when a free version exists on the web that's easily accessible.
+
 <!--
 
 System Guidelines
