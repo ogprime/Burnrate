@@ -7,7 +7,7 @@
       "src": "/logo.svg",
       "sizes": "any",
       "type": "image/svg+xml",
-      "purpose": "any"
+      "purpose": "logo"
     },
     {
       "src": "/icon-192-temp.svg",
@@ -22,13 +22,13 @@
       "purpose": "any"
     },
     {
-      "src": "https://drive.google.com/uc?export=download&amp;id=1NRIsKPHHtMFHgYW5vNXtJyFw5CQGbzGa",
+      "src": "https://i.postimg.cc/d09W9FkY/icon_192_temp.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "https://drive.google.com/uc?export=download&amp;id=1groT7dSqkAtzS4xNx-EF_4e2btbFXyy1",
+      "src": "https://i.postimg.cc/W4797VFP/icon_512_temp.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
@@ -36,21 +36,21 @@
   ],
   "screenshots": [
     {
-      "src": "https://drive.google.com/uc?export=view&amp;id=1c_tRZ8yQMZW6NbSuaxLHKQ7JjjkHRIDE",
+      "src": "https://i.postimg.cc/cCPTJ42y/Screenshot_2026_01_22_103439.png",
       "sizes": "433x932",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Setup screen - Configure meeting parameters"
     },
     {
-      "src": "https://drive.google.com/uc?export=view&amp;id=1QTADqWDWiEanU-h0gpdib2zAMoHMuaEn",
+      "src": "https://i.postimg.cc/H84bZHT3/Screenshot-2026-01-22-103447.png",
       "sizes": "433x934",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Timer screen - Watch the money burn in real-time"
     },
     {
-      "src": "https://drive.google.com/uc?export=view&amp;id=1FNDI_CdV-wQRLOZfqTQqbD_9yJsKGv6m",
+      "src": "https://i.postimg.cc/q6X2b0pG/Screenshot-2026-01-22-103455.png",
       "sizes": "431x933",
       "type": "image/png",
       "form_factor": "narrow",
@@ -64,7 +64,8 @@
   "display_override": [
     "standalone",
     "minimal-ui",
-    "browser"
+    "browser",
+    "window-controls-overlay"
   ],
   "orientation": "portrait-primary",
   "theme_color": "#26D962",
