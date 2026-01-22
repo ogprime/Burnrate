@@ -20,26 +20,38 @@
       "sizes": "512x512",
       "type": "image/svg+xml",
       "purpose": "any"
+    },
+    {
+      "src": "https://drive.google.com/file/d/1NRIsKPHHtMFHgYW5vNXtJyFw5CQGbzGa",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://drive.google.com/file/d/1groT7dSqkAtzS4xNx-EF_4e2btbFXyy1",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
     }
   ],
   "screenshots": [
     {
       "src": "https://drive.google.com/uc?export=view&id=1c_tRZ8yQMZW6NbSuaxLHKQ7JjjkHRIDE",
-      "sizes": "390x844",
+      "sizes": "431x933",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Setup screen - Configure meeting parameters"
     },
     {
       "src": "https://drive.google.com/uc?export=view&id=1QTADqWDWiEanU-h0gpdib2zAMoHMuaEn",
-      "sizes": "390x844",
+      "sizes": "433x934",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Timer screen - Watch the money burn in real-time"
     },
     {
       "src": "https://drive.google.com/uc?export=view&id=1FNDI_CdV-wQRLOZfqTQqbD_9yJsKGv6m",
-      "sizes": "390x844",
+      "sizes": "433x932",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Receipt screen - See the damage and share results"
@@ -49,6 +61,7 @@
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
   "orientation": "portrait-primary",
   "theme_color": "#26D962",
   "background_color": "#ffffff",
@@ -56,6 +69,17 @@
   "dir": "ltr",
   "lang": "en-US",
   "prefer_related_applications": false,
+  "iarc_rating_id": "",
+  "share_target": {
+    "action": "/",
+    "method": "GET",
+    "enctype": "application/x-www-form-urlencoded",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
   "shortcuts": [
     {
       "name": "Start Timer",
