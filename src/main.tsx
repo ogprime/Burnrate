@@ -2,18 +2,20 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './app/App'
 import './styles/index.css'
-import { registerSW } from 'virtual:pwa-register'
 
-// Register the service worker
-registerSW({
-  onNeedRefresh() {
-    // Automatically update the app when new version is available
-    console.log('New content available, refreshing...')
-  },
-  onOfflineReady() {
-    console.log('App ready to work offline')
-  },
-})
+// Register the service worker manually
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('/sw.js')
+      .then((registration) => {
+        console.log('SW registered:', registration)
+      })
+      .catch((error) => {
+        console.log('SW registration failed:', error)
+      })
+  })
+}
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
