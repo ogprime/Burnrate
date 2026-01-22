@@ -9,8 +9,9 @@ const PRECACHE_ASSETS = [
   '/',
   '/index.html',
   '/manifest.json',
-  '/icon-192.png',
-  '/icon-512.png',
+  '/logo.svg',
+  '/icon-192-temp.svg',
+  '/icon-512-temp.svg',
 ];
 
 // Install event - cache core assets
