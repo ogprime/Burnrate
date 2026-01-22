@@ -22,6 +22,29 @@
       "purpose": "any"
     }
   ],
+  "screenshots": [
+    {
+      "src": "https://drive.google.com/uc?export=view&id=1c_tRZ8yQMZW6NbSuaxLHKQ7JjjkHRIDE",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Setup screen - Configure meeting parameters"
+    },
+    {
+      "src": "https://drive.google.com/uc?export=view&id=1QTADqWDWiEanU-h0gpdib2zAMoHMuaEn",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Timer screen - Watch the money burn in real-time"
+    },
+    {
+      "src": "https://drive.google.com/uc?export=view&id=1FNDI_CdV-wQRLOZfqTQqbD_9yJsKGv6m",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Receipt screen - See the damage and share results"
+    }
+  ],
   "id": "/",
   "start_url": "/",
   "scope": "/",
