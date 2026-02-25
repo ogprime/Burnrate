@@ -14,11 +14,11 @@ interface SetupViewProps {
 }
 
 const VIBE_LEVELS = [
-  { label: "Interns", rate: 40 },
-  { label: "Team", rate: 60 },
-  { label: "Leadership", rate: 100 },
-  { label: "Execs", rate: 200 },
-  { label: "Legal", rate: 500 },
+  { label: "Individual", rate: 40 },
+  { label: "Lead", rate: 60 },
+  { label: "Manager", rate: 100 },
+  { label: "Senior", rate: 200 },
+  { label: "C-Suite", rate: 500 },
 ];
 
 export function SetupView({
@@ -89,6 +89,9 @@ export function SetupView({
             </h1>
             <p className="text-muted-foreground text-sm">
             Stop burning cash. Start the timer.
+            </p>
+            <p className="text-muted-foreground text-xs mt-1 leading-relaxed">
+            Track what meetings really cost in real time. Set the headcount, pick a pay level, and hit Ignite.
             </p>
         </div>
         <Button variant="ghost" size="icon" onClick={onOpenHistory}>
@@ -173,10 +176,10 @@ export function SetupView({
             {VIBE_LEVELS.map((v, i) => (
                 <span 
                     key={i} 
-                    className={`transition-colors duration-200 ${Math.abs(sliderValue - i) < 0.4 ? "text-primary font-bold scale-110" : ""}`}
+                    className={`transition-colors duration-200 cursor-pointer select-none ${Math.abs(sliderValue - i) < 0.4 ? "text-primary font-bold scale-110" : "hover:text-foreground"}`}
+                    onClick={() => setHourlyRate(v.rate)}
                 >
-                    {/* Abbreviate Leadership to Leads to save space if needed, but lets try full first, or maybe Leads */}
-                    {v.label === "Leadership" ? "Leads" : v.label}
+                    {v.label}
                 </span>
             ))}
           </div>
