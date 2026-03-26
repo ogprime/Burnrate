@@ -32,11 +32,16 @@
 ## iOS Release
 
 ### Prerequisites
-- [ ] Mac with Xcode installed
+- [ ] Access to a Mac (friend, family, coworker) with Xcode installed — Xcode is macOS-only, no workaround on Windows
 - [ ] Apple Developer Program membership ($99/yr) at [developer.apple.com](https://developer.apple.com)
 
-### Setup
+### Setup (run on the Mac)
+The repo is already configured — whoever has the Mac just needs to clone and run:
+
 ```bash
+git clone https://github.com/ogprime/Burnrate.git
+cd Burnrate
+npm i
 npx cap add ios
 npx @capacitor/assets generate --ios --iconBackgroundColor '#0a0a0f' --iconBackgroundColorDark '#0a0a0f' --splashBackgroundColor '#0a0a0f' --splashBackgroundColorDark '#0a0a0f'
 npx cap sync ios
@@ -45,7 +50,7 @@ npm run cap:ios
 
 ### Build & Sign
 - [ ] In Xcode: set Bundle Identifier to `com.burnrate.app`
-- [ ] Set signing team and provisioning profile
+- [ ] Set signing team and provisioning profile (tied to your Apple Developer account, not the Mac)
 - [ ] Product → Archive → Distribute App → App Store Connect
 
 ### App Store Submission
