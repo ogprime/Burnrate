@@ -88,10 +88,10 @@ export function SetupView({
             BURN RATE
             </h1>
             <p className="text-muted-foreground text-sm">
-            Stop burning cash. Start the timer.
+            Stop burning cash. Meetings are expensive.
             </p>
             <p className="text-muted-foreground text-xs mt-1 leading-relaxed">
-            Track what meetings really cost in real time. Set the headcount, pick a pay level, and hit Ignite.
+            Track what meetings really cost, in real time. Set the headcount, pick a pay level, and hit Ignite to see how expensive that meeting was.
             </p>
         </div>
         <Button variant="ghost" size="icon" onClick={onOpenHistory}>
