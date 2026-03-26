@@ -3,6 +3,9 @@ import { SetupView } from "./components/SetupView";
 import { TimerView } from "./components/TimerView";
 import { ReceiptView } from "./components/ReceiptView";
 import { HistoryView, ReceiptData } from "./components/HistoryView";
+import { KeepAwake } from "@capacitor-community/keep-awake";
+import { Haptics, ImpactStyle } from "@capacitor/haptics";
+import { isNative } from "@/lib/platform";
 
 type Screen = "setup" | "timer" | "receipt" | "history";
 
@@ -20,52 +23,48 @@ export default function App() {
 
   const requestRef = useRef<number>();
   
-  // Prevent page from being discarded on mobile
+  // Prevent screen from sleeping while timer is running
   useEffect(() => {
-    // Request a wake lock when timer is running to prevent page from being discarded
     let wakeLock: any = null;
-    
-    const requestWakeLock = async () => {
-      if (screen === 'timer' && 'wakeLock' in navigator) {
+
+    const acquire = async () => {
+      if (screen !== 'timer') return;
+      if (isNative()) {
+        await KeepAwake.keepAwake();
+      } else if ('wakeLock' in navigator) {
         try {
           wakeLock = await (navigator as any).wakeLock.request('screen');
-          console.log('Wake lock acquired');
-        } catch (err) {
-          console.log('Wake lock failed:', err);
-        }
+        } catch (err) { /* silent */ }
       }
     };
 
-    const releaseWakeLock = () => {
-      if (wakeLock) {
+    const release = async () => {
+      if (isNative()) {
+        await KeepAwake.allowSleep();
+      } else if (wakeLock) {
         wakeLock.release();
         wakeLock = null;
-        console.log('Wake lock released');
       }
     };
 
-    // Keep page alive with visibility change handling
+    // Re-acquire web wake lock when tab becomes visible again
     const handleVisibilityChange = () => {
-      if (document.hidden && screen === 'timer') {
-        // Page is hidden but timer is running - try to keep it alive
-        console.log('Page hidden - timer still running');
-      } else if (!document.hidden && screen === 'timer' && wakeLock === null) {
-        // Page visible again, re-acquire wake lock if needed
-        requestWakeLock();
+      if (!isNative() && !document.hidden && screen === 'timer' && wakeLock === null) {
+        acquire();
       }
     };
 
     document.addEventListener('visibilitychange', handleVisibilityChange);
-    
+
     if (screen === 'timer') {
-      requestWakeLock();
+      acquire();
     } else {
-      releaseWakeLock();
+      release();
     }
 
     return () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
-      releaseWakeLock();
+      release();
     };
   }, [screen]);
   
@@ -211,8 +210,10 @@ export default function App() {
     // If cost crosses 100, 200, 300...
     if (cost > 0 && Math.floor(cost / 100) > lastHapticRef.current) {
         lastHapticRef.current = Math.floor(cost / 100);
-        if (navigator.vibrate) {
-            navigator.vibrate(200); // Heavy vibration bump
+        if (isNative()) {
+            Haptics.impact({ style: ImpactStyle.Heavy });
+        } else if (navigator.vibrate) {
+            navigator.vibrate(200);
         }
     }
   }, [cost, screen]);

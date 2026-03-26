@@ -6,6 +6,9 @@ import { Share2, RotateCcw, Lock, History, ArrowLeft, Copy, X } from "lucide-rea
 import { motion } from "motion/react";
 import { toast } from "sonner";
 import html2canvas from "html2canvas";
+import { Share } from "@capacitor/share";
+import { Clipboard } from "@capacitor/clipboard";
+import { isNative } from "@/lib/platform";
 
 interface ReceiptViewProps {
   cost: number;
@@ -48,7 +51,11 @@ export function ReceiptView({ cost, duration, attendees, onRestart, onOpenHistor
 
   const copyToClipboard = async (text: string) => {
     try {
-        await navigator.clipboard.writeText(text);
+        if (isNative()) {
+            await Clipboard.write({ string: text });
+        } else {
+            await navigator.clipboard.writeText(text);
+        }
         toast.success("Receipt copied to clipboard!");
     } catch (err) {
         // Suppress noisy permission errors in restricted environments (like iframes)
@@ -65,7 +72,23 @@ export function ReceiptView({ cost, duration, attendees, onRestart, onOpenHistor
 
   const handleShare = async () => {
     const text = shareText;
-    
+
+    // Native share via Capacitor (text-only; image sharing requires @capacitor/filesystem, coming in v2)
+    if (isNative()) {
+      try {
+        await Share.share({
+          title: 'Meeting Cost Receipt',
+          text: text,
+          dialogTitle: 'Share your receipt',
+        });
+      } catch (err) {
+        if (err instanceof Error && err.message !== 'Share canceled') {
+          await copyToClipboard(text);
+        }
+      }
+      return;
+    }
+
     // Attempt to generate an image
     let file: File | null = null;
     if (receiptRef.current) {

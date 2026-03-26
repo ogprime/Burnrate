@@ -2,9 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './app/App'
 import './styles/index.css'
+import { isNative } from '@/lib/platform'
 
-// Register the service worker manually
-if ('serviceWorker' in navigator) {
+// Register the service worker manually (web/PWA only)
+if (!isNative() && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker
       .register('/sw.js')
