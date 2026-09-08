@@ -98,17 +98,58 @@ Continuing from Step 4:
 In the left sidebar: **Grow → Store presence → Main store listing**
 
 **App details:**
-- **Short description** (80 chars max): e.g. `Real-time meeting cost calculator. Because meetings aren't free.`
-- **Full description** (4000 chars max): explain the app, its features, the vibe
+
+- **Short description** (80 chars max):
+  ```
+  Watch the meeting cost climb in real time. Then get the receipt.
+  ```
+  (66 chars — alternates: `Real-time meeting cost calculator. Because meetings aren't free.` / `A live burn counter for every meeting you sit through.`)
+
+- **Full description** (4000 chars max):
+  ```
+  Every meeting has a price tag. Burn Rate shows it to you — live.
+
+  Set your attendee count and pick a "vibe" (Individual, Manager, Senior, C-Suite —
+  each with its own hourly rate), hit Ignite, and watch the dollar counter climb in
+  real time for as long as the meeting drags on.
+
+  When it's finally over, you get an official receipt: total cost, duration,
+  attendee count, and a snarky one-liner to match the damage — "Could have been an
+  email," "ROI not found," "That's a lot of lattes." Share it, screenshot it, or
+  just sit with it.
+
+  FEATURES
+  • Live cost counter, updating every second
+  • Vibe slider — quick presets from individual contributor to C-suite hourly rates
+  • Custom attendee count and hourly rate
+  • Shareable receipts with rotating snarky commentary
+  • Meeting history, saved locally
+  • Haptic buzz at cost milestones so you feel the burn
+  • Works fully offline — no account, no ads, no tracking
+
+  Burn Rate doesn't collect or transmit any data. Everything — your settings,
+  your meeting history — stays on your device. See the privacy policy for details.
+
+  Built for anyone who's ever sat in a meeting doing the math in their head.
+  Now the app does it for you. In real time. Out loud.
+  ```
+
+- **Category:** Productivity
+- **Tags:** productivity, business, calculator, meetings, time tracking
 
 **Graphics — required:**
 | Asset | Size | Notes |
 |-------|------|-------|
 | App icon | 512×512 PNG | No transparency |
 | Feature graphic | 1024×500 PNG | Banner shown at top of listing |
-| Phone screenshots | At least 2 | Minimum 320px on shortest side |
+| Phone screenshots | At least 2 | Long side ≤ 2× short side, or Play Console rejects the upload |
 
-> For screenshots: use the Android Studio emulator to take screenshots of the app running (camera icon in the emulator toolbar).
+> Ready-to-upload files are in `store-assets/`: `icon-512.png`, `feature-graphic-1024x500.png`,
+> and three padded screenshots (`ReceiptView-padded.png`, `SetupView-padded.png`,
+> `calculating-padded.png`). These were generated from the originals at the repo root, which
+> didn't meet Play's exact-size / aspect-ratio rules. The padded screenshots have some black
+> margin — fine to ship as-is, or swap in fresh raw screenshots from the emulator later
+> (camera icon in the emulator toolbar) for a tighter look, since those won't need padding.
 
 ---
 
